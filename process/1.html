@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- 
+  Seurat.extend() - Part 1
+  Laying the groundwork for what I want the user to be able to do: upload image, clear, and save.
+-->
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Seurat.extend() | vart.institute on glitch!</title>
+  <meta name="description" content="a george-pierre seurat-like art editor, part of vart.institute">
+  
+  <style type="text/css">
+    body {  overflow: hidden; font-family: Helvetica; padding: 1em; }
+
+    #container p { margin: 0 0 2em; }
+    label { font-weight: bold; text-transform: uppercase; font-size: 1.5em; display: block; margin: .5em 0; }
+
+    #menu { position: absolute; top: 10px; right: 10px; text-align: right;   }
+    #menu a { text-decoration: none; color: black; font-weight: bold; font-size: 1.2em; }
+    #menu p { margin-bottom: 10px; }
+    #menu small { font-family: monospace; }
+
+  </style>
+</head>
+
+<body id="seurat">
+
+  <div id="container">
+  <p>
+    <label for="upload-image">1. upload an image</label>
+    <input type="file" id="upload-image" name="upload-image" />
+  </p>
+
+  <p id="frame-container">
+    <canvas id="frame-canvas"></canvas>
+  </p>
+</div>
+
+<div id="menu"> 
+
+  <div class="tray">
+    <p><a href="index.html">SEURAT.EXTEND()<br /> a <code>var t;</code> demo</a></p>
+    <p><small>upload an image, get an art<br /><a href="index.html">learn about  george-pierre seurat</a></small></p>
+    <div>
+      <button id="clear">Clear</button>
+      <button id="save">Save</button>
+    </div>
+  </div>
+</div>
+  
+<script type="text/javascript"></script>  
+</body>
+
+</html>
