@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Seurat.extend() | vart.institute on glitch!</title>
+  <meta name="description" content="a george-pierre seurat-like art editor, part of vart.institute">
+  <link href="style.css" rel="stylesheet" />
+</head>
+
+<body id="seurat">
+
+  <div id="container">
+    <p>
+      <label for="upload-image">1. upload an image</label>
+      <input type="file" id="upload-image" name="upload-image" />
+    </p>
+  
+    <p id="frame-container">
+      <canvas id="image-canvas"></canvas>
+      <canvas id="frame-canvas"></canvas>
+    </p>
+  </div>
+  
+  <div id="menu"> 
+  
+    <div id="tray">
+      <p><a href="http://vart.institute/seurat">SEURAT.EXTEND()<br /> a <code>var t;</code> demo</a></p>
+      <p><small>upload a <strong>small</strong> image, get an art<br /><a href="http://vart.institute/seurat/">learn about  george-pierre seurat</a></small></p>
+      <div>
+        <button id="clear">Clear</button>
+        <button id="save">Save</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="seurat.js" type="text/javascript"></script>  
+        
+  </body>
+
+</html>

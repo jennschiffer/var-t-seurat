@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- 
+  Seurat.extend() - Part 2
+  Create JavaScript events for uploading, clearing and saving.
+-->
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Seurat.extend() | vart.institute on glitch!</title>
+  <meta name="description" content="a george-pierre seurat-like art editor, part of vart.institute">
+  
+  <style type="text/css">
+    body {  overflow: hidden; font-family: Helvetica; padding: 1em; }
+
+    #container p { margin: 0 0 2em; }
+    label { font-weight: bold; text-transform: uppercase; font-size: 1.5em; display: block; margin: .5em 0; }
+
+    #menu { position: absolute; top: 10px; right: 10px; text-align: right;   }
+    #menu a { text-decoration: none; color: black; font-weight: bold; font-size: 1.2em; }
+    #menu p { margin-bottom: 10px; }
+    #menu small { font-family: monospace; }
+
+  </style>
+</head>
+
+<body id="seurat">
+
+  <div id="container">
+  <p>
+    <label for="upload-image">1. upload an image</label>
+    <input type="file" id="upload-image" name="upload-image" />
+  </p>
+
+  <p id="frame-container">
+    <canvas id="frame-canvas"></canvas>
+  </p>
+</div>
+
+<div id="menu"> 
+
+  <div class="tray">
+    <p><a href="index.html">SEURAT.EXTEND()<br /> a <code>var t;</code> demo</a></p>
+    <p><small>upload an image, get an art<br /><a href="index.html">learn about  george-pierre seurat</a></small></p>
+    <div>
+      <button id="clear">Clear</button>
+      <button id="save">Save</button>
+    </div>
+  </div>
+</div>
+  
+<script type="text/javascript">
+  (function(){
+
+    var uploadInput = document.getElementById('upload-image');
+    var frameContainer = document.getElementById('frame-container');
+    var canvas = document.getElementById('frame-canvas');
+    var ctx = canvas.getContext('2d');
+
+    var buttonClear = document.getElementById('clear');
+    var buttonSave = document.getElementById('save');
+
+    /** EVENTS **/
+
+    // when uploading an image, embed it onto canvas and show it
+    uploadInput.onchange = function(){
+
+      // embed image onto canvas
+      var uploadedImage = uploadInput.files[0];
+      var reader = new FileReader();
+      reader.onload = function(e){
+        var img = new Image();
+        img.onload =function() {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img,0,0);
+        }
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(uploadedImage);
+
+      // show sketch container
+      frameContainer.style.display = 'block';
+    };
+
+    // clear canvas when clear button clicked
+    buttonClear.onclick = function(){
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+
+      frameContainer.style.display = 'none';
+    };
+
+    // open png in new window when save button clicked
+    buttonSave.onclick = function(){
+      window.open(canvas.toDataURL('image/png'));
+    };
+
+  }());
+</script>  
+</body>
+
+</html>
